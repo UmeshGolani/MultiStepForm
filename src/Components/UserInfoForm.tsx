@@ -33,7 +33,7 @@ export const UserInfoForm: React.FC = () => {
 
   const inputClasses = `mt-1 block w-full rounded-md border-light-gray shadow-sm 
     focus:border-purplish-blue focus:ring-purplish-blue
-    placeholder:text-cool-gray text-marine-blue`;
+    placeholder:text-cool-gray text-marine-blue focus:placeholder-transparent px-2`;
 
   const labelClasses = "block text-sm font-medium text-marine-blue";
   const errorClasses = "mt-1 text-sm text-strawberry-red";
@@ -47,7 +47,7 @@ export const UserInfoForm: React.FC = () => {
         <input
           {...register('name')}
           className={inputClasses}
-          placeholder="e.g. Stephen King"
+          placeholder="e.g. Lorem Gaming"
         />
         {errors.name && (
           <p className={errorClasses}>{errors.name.message}</p>
@@ -61,7 +61,7 @@ export const UserInfoForm: React.FC = () => {
         <input
           {...register('email')}
           className={inputClasses}
-          placeholder="e.g. stephenking@lorem.com"
+          placeholder="e.g. loremgaming@lorem.com"
         />
         {errors.email && (
           <p className={errorClasses}>{errors.email.message}</p>
@@ -75,7 +75,7 @@ export const UserInfoForm: React.FC = () => {
         <input
           {...register('phone')}
           className={inputClasses}
-          placeholder="e.g. +1 234 567 890"
+          placeholder="e.g. +91 9999999999"
         />
         {errors.phone && (
           <p className={errorClasses}>{errors.phone.message}</p>

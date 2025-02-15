@@ -7,11 +7,7 @@ export const AddOns: React.FC = () => {
   const dispatch = useAppDispatch();
   const { selectedAddOns, billingCycle } = useAppSelector(state => state.form);
 
-  const handleCheckboxChange = (addonId: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(toggleAddOn(addonId));
-  };
-
-  const handleContainerClick = (addonId: string) => {
+  const handleToggle = (addonId: string) => {
     dispatch(toggleAddOn(addonId));
   };
 
@@ -20,7 +16,7 @@ export const AddOns: React.FC = () => {
       {ADD_ONS.map((addon) => (
         <div
           key={addon.id}
-          onClick={() => handleContainerClick(addon.id)}
+          onClick={() => handleToggle(addon.id)}
           className={`p-4 border rounded-lg cursor-pointer hover:border-purplish-blue transition-colors
             ${selectedAddOns.includes(addon.id) 
               ? 'border-purplish-blue bg-magnolia' 
@@ -31,7 +27,8 @@ export const AddOns: React.FC = () => {
               <input
                 type="checkbox"
                 checked={selectedAddOns.includes(addon.id)}
-                onChange={(e) => handleCheckboxChange(addon.id, e)}
+                onClick={(e) => e.stopPropagation()}
+                onChange={() => handleToggle(addon.id)}
                 className="h-5 w-5 text-purplish-blue focus:ring-purplish-blue border-light-gray rounded 
                   cursor-pointer relative z-10"
               />
